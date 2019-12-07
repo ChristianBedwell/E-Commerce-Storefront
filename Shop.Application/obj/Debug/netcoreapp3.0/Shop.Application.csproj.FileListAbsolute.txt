@@ -1,0 +1,3 @@
+C:\Users\chris\source\repos\VideoGameShop\Shop.Application\obj\Debug\netcoreapp3.0\Shop.Application.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\VideoGameShop\Shop.Application\obj\Debug\netcoreapp3.0\Shop.Application.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\VideoGameShop\Shop.Application\obj\Debug\netcoreapp3.0\Shop.Application.AssemblyInfo.cs

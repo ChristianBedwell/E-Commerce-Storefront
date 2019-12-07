@@ -1,0 +1,11 @@
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.AssemblyInfo.cs
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.deps.json
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.dll
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Domain.dll
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Domain.pdb
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.csproj.CopyComplete
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.pdb
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.dll
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.pdb

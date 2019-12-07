@@ -1,0 +1,7 @@
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\bin\Debug\netcoreapp3.0\Shop.Domain.deps.json
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\bin\Debug\netcoreapp3.0\Shop.Domain.dll
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\bin\Debug\netcoreapp3.0\Shop.Domain.pdb
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp3.0\Shop.Domain.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp3.0\Shop.Domain.AssemblyInfo.cs
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp3.0\Shop.Domain.dll
+C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp3.0\Shop.Domain.pdb

@@ -9,3 +9,5 @@ C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\
 C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.pdb
 C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.dll
 C:\Users\chris\source\repos\VideoGameShop\Shop.Database\obj\Debug\netcoreapp2.1\Shop.Database.pdb
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.runtimeconfig.json
+C:\Users\chris\source\repos\VideoGameShop\Shop.Database\bin\Debug\netcoreapp2.1\Shop.Database.runtimeconfig.dev.json

@@ -1,7 +1,8 @@
 ﻿using Shop.Database;
 using Shop.Domain.Models;
+using System.Threading.Tasks;
 
-namespace Shop.Application.Products
+namespace Shop.Application.CreateProducts
 {
     public class CreateProduct
     {
@@ -12,14 +13,22 @@ namespace Shop.Application.Products
             _context = context;
         }
 
-        public void Dp(int id, string Name, string Description)
+        public async Task Do(ProductViewModel viewModel)
         {
             _context.Products.Add(new Product
             {
-                Id = id,
-                Name = Name,
-                Description = Description
+                Name = viewModel.Name,
+                Description = viewModel.Description,
+                Value = viewModel.Value
             });
+
+            await _context.SaveChangesAsync();
         }
+    }
+    public class ProductViewModel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Value { get; set; }
     }
 }

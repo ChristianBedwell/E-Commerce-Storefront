@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Application.ProductsAdmin;
 using Shop.Database;
+using System.Threading.Tasks;
 
 namespace VideoGameShop.UI.Controllers
 {
@@ -20,13 +21,13 @@ namespace VideoGameShop.UI.Controllers
         [HttpGet("products/{id}")]
         public IActionResult GetProduct(int id) => Ok(new GetProduct(_context).Do(id));
 
-        [HttpGet("products")]
-        public IActionResult CreateProduct(CreateProduct.ProductViewModel viewModel) => Ok(new CreateProduct(_context).Do(viewModel));
+        [HttpPost("products")]
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProduct.Request request) => Ok((await new CreateProduct(_context).Do(request)));
 
-        [HttpGet("products/{id}")]
-        public IActionResult DeleteProduct(int id) => Ok(new DeleteProduct(_context).Do(id));
+        [HttpDelete("products/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id) => Ok((await new DeleteProduct(_context).Do(id)));
 
-        [HttpGet("products")]
-        public IActionResult UpdateProduct(UpdateProduct.ProductViewModel viewModel) => Ok(new UpdateProduct(_context).Do(viewModel));
+        [HttpPut("products")]
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Request request) => Ok((await new UpdateProduct(_context).Do(request)));
     }
 }

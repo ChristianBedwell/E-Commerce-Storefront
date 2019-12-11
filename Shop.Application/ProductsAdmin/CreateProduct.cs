@@ -13,19 +13,37 @@ namespace Shop.Application.ProductsAdmin
             _context = context;
         }
 
-        public async Task Do(ProductViewModel viewModel)
+        public async Task<Response> Do(Request response)
         {
-            _context.Products.Add(new Product
+            var product = new Product
             {
-                Name = viewModel.Name,
-                Description = viewModel.Description,
-                Value = viewModel.Value
-            });
+                Name = response.Name,
+                Description = response.Description,
+                Value = response.Value
+            };
 
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
+
+            return new Response
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Value = product.Value
+            };
         }
-        public class ProductViewModel
+
+        public class Request
         {
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public decimal Value { get; set; }
+        }
+
+        public class Response
+        {
+            public int Id { get; set; }
             public string Name { get; set; }
             public string Description { get; set; }
             public decimal Value { get; set; }

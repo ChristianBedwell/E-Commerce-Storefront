@@ -38,3 +38,4 @@ C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\VideoGameShop.UI.pdb
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\bin\Debug\netcoreapp2.1\Shop.Application.dll
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\bin\Debug\netcoreapp2.1\Shop.Application.pdb
+C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Index.cshtml.g.cs

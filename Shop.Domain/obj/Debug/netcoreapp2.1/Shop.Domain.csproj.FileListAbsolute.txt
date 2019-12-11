@@ -5,4 +5,3 @@ C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp2.1\Sh
 C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp2.1\Shop.Domain.AssemblyInfo.cs
 C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp2.1\Shop.Domain.dll
 C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp2.1\Shop.Domain.pdb
-C:\Users\chris\source\repos\VideoGameShop\Shop.Domain\obj\Debug\netcoreapp2.1\Shop.Domain.csprojAssemblyReference.cache

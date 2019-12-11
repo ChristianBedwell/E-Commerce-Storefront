@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Shop.Application.CreateProducts;
-using Shop.Application.GetProducts;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Shop.Application.Products;
 using Shop.Database;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace VideoGameShop.UI.Pages
 {
@@ -16,19 +13,11 @@ namespace VideoGameShop.UI.Pages
             _context = context;
         }
 
-        [BindProperty]
-        public Shop.Application.CreateProducts.ProductViewModel Product { get; set; }
-        public IEnumerable<Shop.Application.GetProducts.ProductViewModel> Products { get; set; }
+        public IEnumerable<GetProducts.ProductViewModel> Products { get; set; }
        
         public void OnGet()
         {
             Products = new GetProducts(_context).Do();
-        }
-
-        public async Task<IActionResult> onPost()
-        {
-            await new CreateProduct(_context).Do(Product);
-            return RedirectToPage("Index");
         }
     }
 }

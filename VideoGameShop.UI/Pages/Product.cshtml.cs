@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shop.Application.Products;
@@ -13,6 +14,14 @@ namespace VideoGameShop.UI.Pages
         {
             _context = context;
         }
+
+        [BindProperty]
+        public Test ProductTest { get; set; }
+
+        public class Test
+        {
+            public string Id { get; set; }
+        }
         
         public GetProduct.ProductViewModel Product { get; set; }
 
@@ -27,6 +36,15 @@ namespace VideoGameShop.UI.Pages
             {
                 return Page();
             }
+        }
+
+        public IActionResult onPost()
+        {
+            var current_id = HttpContext.Session.GetString("id");
+
+            HttpContext.Session.SetString("id", ProductTest.Id);
+
+            return RedirectToPage("Index");
         }
     }
 }

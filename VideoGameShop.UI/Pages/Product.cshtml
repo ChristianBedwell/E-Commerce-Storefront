@@ -3,17 +3,19 @@
 @{
 }
 
+<div>
+    <p>@Model.Product.Name</p>
+    <p>@Model.Product.Description</p>
+    <p>@Model.Product.Value</p>
     <div>
-        <p>@Model.Product.Name</p>
-        <p>@Model.Product.Description</p>
-        <p>@Model.Product.Value</p>
-        <div>
+        <form method="post">
             <label>Stock</label>
-            <select>
+            <select asp-for="ProductTest.Id">
                 @foreach (var s in Model.Product.Stock)
                 {
                     <option value="@s.Id">@s.Description</option>
                 }
             </select>
-        </div>
+        </form>
     </div>
+</div>

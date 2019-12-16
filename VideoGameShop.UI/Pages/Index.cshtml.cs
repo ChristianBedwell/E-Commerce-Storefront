@@ -8,6 +8,7 @@ namespace VideoGameShop.UI.Pages
     public class IndexModel : PageModel
     {
         private ApplicationDbContext _context;
+
         public IndexModel(ApplicationDbContext context)
         {
             _context = context;

@@ -65,7 +65,7 @@ using VideoGameShop.UI;
             WriteLiteral("            ");
             EndContext();
             BeginContext(154, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "287a1e7e44a645b891af4920547a122c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f41ab81e03b44f048c47321fb9743e3b", async() => {
                 BeginContext(219, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();

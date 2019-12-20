@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Database;
+using Stripe;
 using System;
 
 namespace VideoGameShop.UI
@@ -38,6 +39,8 @@ namespace VideoGameShop.UI
                 options.Cookie.Name = "Cart";
                 options.Cookie.MaxAge = TimeSpan.FromDays(365);
             });
+
+            StripeConfiguration.SetApiKey(_config.GetSection("Stripe")["SecretKey"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

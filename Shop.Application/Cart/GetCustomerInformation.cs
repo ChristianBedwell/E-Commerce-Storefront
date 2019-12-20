@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Shop.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Shop.Application.Cart
 {
@@ -16,30 +14,20 @@ namespace Shop.Application.Cart
             _session = session;
         }
 
-        public class Request
+        public class Response
         {
-            [Required]
             public string FirstName { get; set; }
-            [Required]
             public string LastName { get; set; }
-            [Required]
-            [DataType(DataType.EmailAddress)]
             public string Email { get; set; }
-            [Required]
-            [DataType(DataType.PhoneNumber)]
             public string PhoneNumber { get; set; }
 
-            [Required]
             public string Address1 { get; set; }
-            [Required]
             public string Address2 { get; set; }
-            [Required]
             public string City { get; set; }
-            [Required]
             public string PostCode { get; set; }
         }
 
-        public Request Do()
+        public Response Do()
         {
             var stringObject = _session.GetString("customer-info");
 
@@ -48,8 +36,19 @@ namespace Shop.Application.Cart
                 return null;
             }
 
-            var response = JsonConvert.DeserializeObject<Request>(stringObject);
-            return response;
+            var customerInformation = JsonConvert.DeserializeObject<CustomerInformation>(stringObject);
+
+            return new Response
+            {
+                FirstName = customerInformation.FirstName,
+                LastName = customerInformation.LastName,
+                Email = customerInformation.Email,
+                PhoneNumber = customerInformation.PhoneNumber,
+                Address1 = customerInformation.Address1,
+                Address2 = customerInformation.Address2,
+                City = customerInformation.City,
+                PostCode = customerInformation.PostCode,
+            };
         }
     }
 }

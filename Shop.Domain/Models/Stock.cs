@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Shop.Domain.Models
 {
@@ -12,5 +10,6 @@ namespace Shop.Domain.Models
 
         public int ProductId { get; set; }
         public Product Product { get; set; }
+        public ICollection<OrderStock> OrderStocks { get; set; }
     }
 }

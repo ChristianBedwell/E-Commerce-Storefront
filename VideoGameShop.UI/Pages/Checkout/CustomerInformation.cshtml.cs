@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shop.Application.Cart;
@@ -6,6 +7,13 @@ namespace VideoGameShop.UI.Pages.Checkout
 {
     public class CustomerInformationModel : PageModel
     {
+        private IHostingEnvironment _environment;
+
+        public CustomerInformationModel(IHostingEnvironment environment)
+        {
+            _environment = environment;
+        }
+
         [BindProperty]
         public AddCustomerInformation.Request CustomerInformation { get; set; }
 
@@ -15,6 +23,20 @@ namespace VideoGameShop.UI.Pages.Checkout
 
             if(information == null)
             {
+                if (_environment.IsDevelopment())
+                {
+                    CustomerInformation = new AddCustomerInformation.Request
+                    {
+                        FirstName = "A",
+                        LastName = "A",
+                        Email = "A@a.com",
+                        PhoneNumber = "11",
+                        Address1 = "A",
+                        Address2 = "A",
+                        City = "A",
+                        PostCode = "A",
+                    };
+                }
                 return Page();
             }
             else
@@ -23,7 +45,7 @@ namespace VideoGameShop.UI.Pages.Checkout
             }
         }
 
-        public IActionResult onPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {

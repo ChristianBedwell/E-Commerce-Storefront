@@ -274,6 +274,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[22.8.0, )"
             }
           },
           "imports": [

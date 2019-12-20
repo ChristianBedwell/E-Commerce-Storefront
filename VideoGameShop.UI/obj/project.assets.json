@@ -2866,6 +2866,19 @@
           }
         }
       },
+      "Stripe.net/22.8.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections.Immutable": "1.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Stripe.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Stripe.net.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7447,6 +7460,26 @@
         "version.txt"
       ]
     },
+    "Stripe.net/22.8.0": {
+      "sha512": "YFtNoypJcc2LwkEq/1dfmFZsUIJXuOmJ9s5yvBMhDuv4cW8oSdfoNaaG8s4aYxaaUtuBUvkAp3XzECP/+Xq9dg==",
+      "type": "package",
+      "path": "stripe.net/22.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Stripe.net.dll",
+        "lib/net45/Stripe.net.pdb",
+        "lib/net45/Stripe.net.xml",
+        "lib/netstandard1.2/Stripe.net.dll",
+        "lib/netstandard1.2/Stripe.net.pdb",
+        "lib/netstandard1.2/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.pdb",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.22.8.0.nupkg.sha512",
+        "stripe.net.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -11852,7 +11885,8 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Shop.Application >= 1.0.0",
-      "Shop.Database >= 1.0.0"
+      "Shop.Database >= 1.0.0",
+      "Stripe.net >= 22.8.0"
     ]
   },
   "packageFolders": {
@@ -11922,6 +11956,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "[22.8.0, )"
           }
         },
         "imports": [

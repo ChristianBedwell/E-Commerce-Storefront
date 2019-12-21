@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shop.Application.Cart;
 using Shop.Application.Products;
 using Shop.Database;
+using System.Threading.Tasks;
 
 namespace VideoGameShop.UI.Pages
 {
@@ -21,9 +22,9 @@ namespace VideoGameShop.UI.Pages
         
         public GetProduct.ProductViewModel Product { get; set; }
 
-        public IActionResult OnGet(string name)
+        public async Task<IActionResult> OnGet(string name)
         {
-            Product = new GetProduct(_context).Do(name.Replace("-", " "));
+            Product = await new GetProduct(_context).Do(name.Replace("-", " "));
             if (Product == null)
             {
                 return RedirectToPage("Index");
@@ -34,11 +35,19 @@ namespace VideoGameShop.UI.Pages
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
-            new AddToCart(HttpContext.Session).Do(CartViewModel);
+            var stockAdded = await new AddToCart(HttpContext.Session, _context).Do(CartViewModel);
 
-            return RedirectToPage("Cart");
+            if(stockAdded)
+            {
+                return RedirectToPage("Cart");
+            }
+            else
+            {
+                // TODO: add a warning
+                return Page();
+            }            
         }
     }
 }

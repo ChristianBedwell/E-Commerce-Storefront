@@ -37,7 +37,7 @@ namespace VideoGameShop.UI
             services.AddSession(options =>
             {
                 options.Cookie.Name = "Cart";
-                options.Cookie.MaxAge = TimeSpan.FromDays(365);
+                options.Cookie.MaxAge = TimeSpan.FromMinutes(20);
             });
 
             StripeConfiguration.SetApiKey(_config.GetSection("Stripe")["SecretKey"]);

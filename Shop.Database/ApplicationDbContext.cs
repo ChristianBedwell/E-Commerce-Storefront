@@ -18,7 +18,8 @@ namespace Shop.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<OrderStock>().HasKey(x => new { x.StockId, x.OrderId });
+            modelBuilder.Entity<OrderStock>()
+                .HasKey(x => new { x.StockId, x.OrderId });
 
         }
     }

@@ -50,3 +50,4 @@ C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Checkout\CustomerInformation.cshtml.g.cs
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Checkout\Payment.cshtml.g.cs
 C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Accounts\Login.cshtml.g.cs
+C:\Users\chris\source\repos\VideoGameShop\VideoGameShop.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\ConfigureUsers.cshtml.g.cs

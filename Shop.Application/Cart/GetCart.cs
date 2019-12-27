@@ -23,7 +23,9 @@ namespace Shop.Application.Cart
         {
             public string Name { get; set; }
             public string Value { get; set; }
+            public decimal RealValue { get; set; }
             public int Qty { get; set; }
+
             public int StockId { get; set; }
         }
 
@@ -42,7 +44,8 @@ namespace Shop.Application.Cart
                 .Select(x => new Response
                 {
                     Name = x.Product.Name,
-                    Value = $"$ {x.Product.Value.ToString("N2")}",
+                    Value = $"${x.Product.Value.ToString("N2")}",
+                    RealValue = x.Product.Value,
                     StockId = x.Id,
                     Qty = cartList.FirstOrDefault(y => y.StockId == x.Id).Qty
                 })

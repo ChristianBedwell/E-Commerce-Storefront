@@ -41,7 +41,7 @@
             })
             .then(res => {
                 console.log(res);
-                this.selectProduct.stock.splice(index, 1);
+                this.selectedProduct.stock.splice(index, 1);
             })
             .catch(err => {
                 console.log(err);
@@ -52,10 +52,10 @@
         },
         deleteStock(id, index) {
             this.loading = true;
-            axios.delete('/stocks' + id)
+            axios.delete('/stocks/' + id)
             .then(res => {
                 console.log(res);
-                this.selectProduct.stock.splice(index, 1);
+                this.selectedProduct.stock.splice(index, 1);
             })
             .catch(err => {
                 console.log(err);

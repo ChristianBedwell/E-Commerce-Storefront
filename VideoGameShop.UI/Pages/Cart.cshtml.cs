@@ -17,9 +17,9 @@ namespace VideoGameShop.UI.Pages
 
         public IEnumerable<GetCart.Response> Cart { get; set; }
 
-        public IActionResult OnGet([FromServices] GetCart getCart)
+        public IActionResult OnGet()
         {
-            Cart = getCart.Do();
+            Cart = new GetCart(HttpContext.Session, _context).Do();
 
             return Page();
         }

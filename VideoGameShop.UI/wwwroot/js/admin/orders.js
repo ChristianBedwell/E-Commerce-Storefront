@@ -18,30 +18,30 @@
         getOrders() {
             this.loading = true;
             axios.get('/orders?status=' + this.status)
-                .then(result => {
-                    this.orders = result.data;
-                    this.loading = false;
-                });
+            .then(result => {
+                this.orders = result.data;
+                this.loading = false;
+            });
         },
         selectOrder(id) {
             this.loading = true;
             axios.get('/orders/' + id)
-                .then(result => {
-                    this.selectedOrder = result.data;
-                    this.loading = false;
-                });
+            .then(result => {
+                this.selectedOrder = result.data;
+                this.loading = false;
+            });
         },
         updateOrder() {
             this.loading = true;
-            axios.put('/orders/' + this.selectOrder.id, null)
-                .then(result => {
-                    this.loading = false;
-                    this.exitOrder();
-                    this.getOrders();
-                });
+            axios.put('/orders/' + this.selectedOrder.id, null)
+            .then(result => {
+                this.loading = false;
+                this.exitOrder();
+                this.getOrders();
+            });
         },
         exitOrder() {
-            this.selectOrder = null;
+            this.selectedOrder = null;
         }
     },
     computed: {

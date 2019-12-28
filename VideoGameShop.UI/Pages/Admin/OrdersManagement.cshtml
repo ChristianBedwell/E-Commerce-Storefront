@@ -4,7 +4,7 @@
 }
 
 <div id="app">
-    <div v-if="selectedOrder === null">
+    <div v-if="selectedOrder == null">
         <div class="tabs is-centered">
             <ul>
                 <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>

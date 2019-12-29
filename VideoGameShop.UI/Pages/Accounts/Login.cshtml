@@ -3,8 +3,51 @@
 @{
 }
 
-<form method="post">
+<!-- <form method="post">
     <input asp-for="Input.Username" />
     <input asp-for="Input.Password" />
     <input type="submit" name="name" value="Sign In" />
-</form>
+</form> -->
+
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                    <form method="post" class="box">
+                        <h3 class="title has-text-black has-text-centered">Admin Login</h3>
+                        <hr>
+                        <div class="field">
+                            <label for="" class="label">Username</label>
+                            <div class="control has-icons-left">
+                                <input asp-for="Input.Username" type="text" placeholder="e.g. User1234" class="input" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Password</label>
+                            <div class="control has-icons-left">
+                                <input asp-for="Input.Password" type="password" placeholder="*******" class="input" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field" style="text-align:center">
+                            <button class="button is-success is-fullwidth" id="button-login" value="Sign In">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts {
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+}
+

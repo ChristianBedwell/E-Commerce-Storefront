@@ -24,3 +24,14 @@
 .align-self-center {
     align-self: center;
 }
+
+#button-login {
+    background-color: #000000;
+    color: white;
+    margin-top: 20px;
+}
+
+#button-login:hover {
+    background-color: #464646;
+    color: white;
+}

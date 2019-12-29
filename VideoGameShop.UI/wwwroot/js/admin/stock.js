@@ -6,7 +6,7 @@
         newStock: {
             productId: 0,
             description: "Size",
-            quantity: 10
+            qty: 10
         }
     },
     mounted() {
@@ -18,7 +18,7 @@
             axios.get('/stocks')
             .then(res => {
                 console.log(res);
-                this.products = res.data
+                this.products = res.data;
             })
             .catch(err => {
                 console.log(err);
@@ -34,7 +34,7 @@
                     return {
                         id: x.id,
                         description: x.description,
-                        quantity: x.quantity,
+                        qty: x.qty,
                         productId: this.selectedProduct.id
                     };
                 })
@@ -81,6 +81,6 @@
         selectProduct(product) {
             this.selectedProduct = product;
             this.newStock.productId = product.id;
-        }
+        },
     }
-})
+});

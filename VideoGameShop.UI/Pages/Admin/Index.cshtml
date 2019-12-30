@@ -43,6 +43,23 @@
                 <input class="input" v-model="productModel.value" />
             </div>
         </div>
+        <div class="field">
+            <label class="label">Product Image</label>
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Upload File
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
         <button class="button is-success" @@click="createProduct" v-if="!productModel.id">Create Product</button>
         <button class="button is-warning" @@click="updateProduct" v-else>Update Product</button>
         <button class="button" @@click="cancel">Cancel</button>
@@ -51,4 +68,5 @@
 
 @section scripts{
     <script src="~/js/admin/products.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 }

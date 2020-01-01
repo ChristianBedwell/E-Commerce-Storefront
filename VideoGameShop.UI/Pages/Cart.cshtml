@@ -22,7 +22,7 @@
                     <div class="level-item">
                         <div class="columns is-gapless has-text-centered is-mobile is-multiline">
                             <div class="column is-4">
-                                <button class="button" type="button" onclick="removeOneFromCart(event)" data-stock-id="@product.StockId">
+                                <button class="button" type="button" id="decrementButton" onclick="removeOneFromCart(event)" data-stock-id="@product.StockId">
                                     -
                                 </button>
                             </div>
@@ -30,7 +30,7 @@
                                 @product.Qty
                             </div>
                             <div class="column is-4">
-                                <button class="button" type="button" onclick="addOneToCart(event)" data-stock-id="@product.StockId">
+                                <button class="button" type="button" id="incrementButton" onclick="addOneToCart(event)" data-stock-id="@product.StockId">
                                     +
                                 </button>
                             </div>
@@ -101,6 +101,36 @@
                 .catch(err => {
                     alert(err.error);
                 });
+        }
+
+        var toggleIncrementButton = function (e) {
+            var stockId = e.target.dataset.stockId;
+
+            var id = "stock-" + stockId;
+            var el = document.getElementById(id);
+            var qty = parseInt(el.innerText);
+
+            if (qty + 1 >= product.qty) {
+                el.disabled = false;
+            }
+            else {
+                el.disabled = true;
+            }
+        }
+
+        var toggleDecrementButton = function (e) {
+            var stockId = e.target.dataset.stockId;
+
+            var id = "stock-" + stockId;
+            var el = document.getElementById(id);
+            var qty = parseInt(el.innerText);
+
+            if (qty - 1 <= 0) {
+                el.disabled = true;
+            }
+            else {
+                el.disabled = false;
+            }
         }
     </script>
 

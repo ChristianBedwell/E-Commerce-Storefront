@@ -45,9 +45,9 @@ namespace VideoGameShop.UI.Controllers
                 Qty = 1
             };
 
-            var addToCart = new RemoveFromCart(HttpContext.Session, _context);
+            var removeFromCart = new RemoveFromCart(HttpContext.Session, _context);
 
-            var success = await addToCart.Do(request);
+            var success = await removeFromCart.Do(request);
 
             if (success)
             {
@@ -66,9 +66,9 @@ namespace VideoGameShop.UI.Controllers
                 All = true
             };
 
-            var addToCart = new RemoveFromCart(HttpContext.Session, _context);
+            var removeFromCart = new RemoveFromCart(HttpContext.Session, _context);
 
-            var success = await addToCart.Do(request);
+            var success = await removeFromCart.Do(request);
 
             if (success)
             {

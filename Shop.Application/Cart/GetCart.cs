@@ -27,6 +27,7 @@ namespace Shop.Application.Cart
             public int Qty { get; set; }
 
             public int StockId { get; set; }
+            public string TotalValue { get; set; }
         }
 
         public IEnumerable<Response> Do()
@@ -47,7 +48,8 @@ namespace Shop.Application.Cart
                     Value = $"${x.Product.Value.ToString("N2")}",
                     RealValue = x.Product.Value,
                     StockId = x.Id,
-                    Qty = cartList.FirstOrDefault(y => y.StockId == x.Id).Qty
+                    Qty = cartList.FirstOrDefault(y => y.StockId == x.Id).Qty,
+                    TotalValue = $"${(x.Product.Value * cartList.FirstOrDefault(y => y.StockId == x.Id).Qty).ToString("N2")}"
                 })
                 .ToList();
 

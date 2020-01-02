@@ -23,5 +23,11 @@ namespace VideoGameShop.UI.Pages
 
             return Page();
         }
+
+        public int GetStockCount(int stockId)
+        {
+            var stockCount = _context.Stock.Find(stockId).Qty;
+            return stockCount;
+        }
     }
 }

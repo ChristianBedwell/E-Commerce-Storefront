@@ -20,11 +20,12 @@ namespace Shop.Application.StockAdmin
                 .Include(x => x.Stock)
                 .Select(x => new ProductViewModel
                 {
-                    Id = x.Id,
+                    ProductId = x.Id,
                     Description = x.Description,
                     Stock = x.Stock.Select(y => new StockViewModel
                     {
-                        Id = y.Id,
+                        StockId = y.Id,
+                        ProductId = y.ProductId,
                         Description = y.Description,
                         Qty = y.Qty
                     })
@@ -36,14 +37,15 @@ namespace Shop.Application.StockAdmin
 
         public class StockViewModel
         {
-            public int Id { get; set; }
+            public int StockId { get; set; }
+            public int ProductId { get; set; }
             public string Description { get; set; }
             public int Qty { get; set; }
         }
 
         public class ProductViewModel
         {
-            public int Id { get; set; }
+            public int ProductId { get; set; }
             public string Description { get; set; }
             public IEnumerable<StockViewModel> Stock { get; set; }
         }

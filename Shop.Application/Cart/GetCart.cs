@@ -47,8 +47,9 @@ namespace Shop.Application.Cart
                     Name = x.Product.Name,
                     Value = $"${x.Product.Value.ToString("N2")}",
                     RealValue = x.Product.Value,
-                    StockId = x.Id,
                     Qty = cartList.FirstOrDefault(y => y.StockId == x.Id).Qty,
+
+                    StockId = x.Id,                    
                     TotalValue = $"${(x.Product.Value * cartList.FirstOrDefault(y => y.StockId == x.Id).Qty).ToString("N2")}"
                 })
                 .ToList();

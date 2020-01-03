@@ -1,6 +1,7 @@
 ﻿@page
 @model VideoGameShop.UI.Pages.CartModel
 @{
+    var stockQty = 0;
 }
 
 <section class="hero is-fullheight">
@@ -25,6 +26,20 @@
                             <tbody>
                                 @foreach (var product in Model.Cart)
                                 {
+                                    using (var stocks = Model.Stock.GetEnumerator()) {
+                                        // iterate through each stock object
+                                        while (stocks.MoveNext())
+                                        {
+                                            // iterate through the stock view model
+                                            foreach (Shop.Application.StockAdmin.GetStock.StockViewModel stock in stocks.Current.Stock) {
+                                                if(stock.StockId == product.StockId)
+                                                {
+                                                    stockQty = stock.Qty;
+                                                }
+                                            }
+                                        }
+                                    }
+
                                     <tr id="product-@product.StockId">
                                         <td style="text-align: center; vertical-align: middle;">
                                             <img src="~/images/video game item.jpg" class="image is-64x64" />
@@ -35,7 +50,7 @@
                                         <td style="text-align: center; vertical-align: middle;">
                                             <div class="columns is-gapless has-text-centered is-mobile is-multiline">
                                                 <div class="column is-4">
-                                                    <button class="button" type="button" id="decrementButton" onclick="removeOneFromCart(event)" data-stock-id="@product.StockId">
+                                                    <button class="button" type="button" id="decrementButton" onclick="removeOneFromCart(event, @stockQty)" data-stock-id="@product.StockId">
                                                         -
                                                     </button>
                                                 </div>
@@ -43,7 +58,7 @@
                                                     @product.Qty
                                                 </div>
                                                 <div class="column is-4">
-                                                    <button class="button" type="button" id="incrementButton" onclick="addOneToCart(event)" data-stock-id="@product.StockId">
+                                                    <button class="button" type="button" id="incrementButton" onclick="addOneToCart(event, @stockQty)" data-stock-id="@product.StockId">
                                                         +
                                                     </button>
                                                 </div>
@@ -106,7 +121,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        var addOneToCart = function (e) {
+        var addOneToCart = function (e, stockQty) {
             var stockId = e.target.dataset.stockId;
 
             axios.post("/Cart/AddOne/" + stockId)
@@ -116,7 +131,6 @@
                     var qty = parseInt(el.innerText);
 
                     el.innerText = (qty + 1);
-                    var stockQty = getStockCount(stockId);
                     toggleButtons(el.innerText, stockQty);
                 })
                 .catch(err => {
@@ -124,7 +138,7 @@
                 });
         }
 
-        var removeOneFromCart = function (e) {
+        var removeOneFromCart = function (e, stockQty) {
             var stockId = e.target.dataset.stockId;
 
             axios.post("/Cart/RemoveOne/" + stockId)
@@ -134,7 +148,6 @@
                     var qty = parseInt(el.innerText);
 
                     el.innerText = (qty - 1);
-                    var stockQty = getStockCount(stockId);
                     toggleButtons(el.innerText, stockQty);
                 })
                 .catch(err => {
@@ -156,12 +169,6 @@
                 });
         }
 
-        // TODO: use code behind method to pass stock quantity to toggle button function
-        var getStockCount = function (stockId) {
-            var stockCount = @CartModel.GetStockCount(stockId);
-            return stockCount;
-        }
-
         var toggleButtons = function (selectedQty, stockQty) {
             console.log("Selected Quantity: " + selectedQty);
             console.log("Stock Quantity: " + stockQty);
@@ -170,7 +177,7 @@
                 document.getElementById("incrementButton").disabled = true;
                 document.getElementById("decrementButton").disabled = false;
             }
-            else if (selectedQty <= 0) {
+            else if (selectedQty <= 1) {
                 document.getElementById("incrementButton").disabled = false;
                 document.getElementById("decrementButton").disabled = true;
             }

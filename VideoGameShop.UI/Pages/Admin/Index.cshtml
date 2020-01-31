@@ -5,11 +5,13 @@
 
 <div id="app" class="container">
     <div v-if="!editing">
-        <button class="button" @@click="newProduct">Add New Product</button>
+        <div class="header">
+            <h1><b>Products</b></h1>
+        </div>
         <table class="table">
             <tr>
                 <th>Id</th>
-                <th>Product</th>
+                <th>Name</th>
                 <th>Value</th>
                 <th></th>
                 <th></th>
@@ -20,9 +22,9 @@
                 <td>{{product.value}}</td>
                 <td><a @@click="editProduct(product.id, index)">Edit</a></td>
                 <td><a @@click="deleteProduct(product.id, index)">Remove</a></td>
-
             </tr>
         </table>
+        <button class="button" @@click="newProduct">Add New Product</button>
     </div>
     <div v-else>
         <div class="field">

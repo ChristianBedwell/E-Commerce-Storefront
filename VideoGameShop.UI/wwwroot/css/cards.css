@@ -1,0 +1,16 @@
+﻿.card {
+    overflow: hidden
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+}
+
+.card.large {
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+    border-radius: 5px;
+}

@@ -9,9 +9,11 @@
 
     <environment include="Development">
         <link href="~/lib/bulma-0.8.0/css/bulma.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/admin/panel.css" />
     </environment>
     <environment include="Production">
-        <link href="~/lib/bulma-0.8.0/css/bulma.min.css" rel="stylesheet" /> 
+        <link href="~/lib/bulma-0.8.0/css/bulma.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/admin/panel.css" />
     </environment>
 </head>
 <body>
@@ -25,7 +27,7 @@
                     {
                         <p class="menu-label">Store Menu</p>
                         <ul class="menu-list">
-                            <li><a asp-page="/Admin/Index">Products</a></li>
+                            <li><a class="is-active" asp-page="/Admin/Index">Products</a></li>
                             <li><a asp-page="/Admin/OrdersManagement">Orders</a></li>
                             <li><a asp-page="/Admin/Stock">Stock</a></li>
                         </ul>

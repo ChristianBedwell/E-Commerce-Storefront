@@ -3,72 +3,104 @@
 @{
 }
 
-<div id="app" class="container">
-    <div v-if="!editing">
-        <div class="header">
-            <h1><b>Products</b></h1>
-        </div>
-        <table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Value</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr v-for="(product, index) in products">
-                <td>{{product.id}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.value}}</td>
-                <td><a @@click="editProduct(product.id, index)">Edit</a></td>
-                <td><a @@click="deleteProduct(product.id, index)">Remove</a></td>
-            </tr>
-        </table>
-        <button class="button" @@click="newProduct">Add New Product</button>
-    </div>
-    <div v-else>
-        <div class="field">
-            <label class="label">Product Name</label>
-            <div class="control">
-                <input class="input" v-model="productModel.name" />
+<main>
+    <div id="app" class="container-fluid">
+        <h1 class="mt-4">Products</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Products</li>
+        </ol>
+        <!-- if not editing products, display table -->
+        <div v-if="!editing">
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-table mr-1"></i>Products</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(product, index) in products">
+                                    <td>{{product.id}}</td>
+                                    <td>{{product.name}}</td>
+                                    <td>${{product.value}}</td>
+                                    <td><button type="button" class="btn btn-info" @@click="editProduct(product.id, index)">Edit</button></td>
+                                    <td><button type="button" class="btn btn-danger" @@click="deleteProduct(product.id, index)">Remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+            <button type="button" class="btn btn-primary" @@click="newProduct">Add New Product</button>
         </div>
-        <div class="field">
-            <label class="label">Product Description</label>
-            <div class="control">
-                <input class="input" v-model="productModel.description" />
+        <!-- else if editing, display input fields -->
+        <div v-else>
+            <div class="field">
+                <label class="label">Product Name</label>
+                <div class="control">
+                    <input class="input" v-model="productModel.name" />
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label">Product Value</label>
-            <div class="control">
-                <input class="input" v-model="productModel.value" />
+            <div class="field">
+                <label class="label">Product Description</label>
+                <div class="control">
+                    <input class="input" v-model="productModel.description" />
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label">Product Image</label>
-            <div class="file">
-                <label class="file-label">
-                    <input class="file-input" type="file" name="resume">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
+            <div class="field">
+                <label class="label">Product Value</label>
+                <div class="control">
+                    <input class="input" v-model="productModel.value" />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Product Image</label>
+                <div class="file">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="resume">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Upload File
+                            </span>
                         </span>
-                        <span class="file-label">
-                            Upload File
-                        </span>
-                    </span>
-                </label>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <button class="button is-success" @@click="createProduct" v-if="!productModel.id">Create Product</button>
-        <button class="button is-warning" @@click="updateProduct" v-else>Update Product</button>
-        <button class="button" @@click="cancel">Cancel</button>
+            <button class="button is-success" @@click="createProduct" v-if="!productModel.id">Create Product</button>
+            <button class="button is-warning" @@click="updateProduct" v-else>Update Product</button>
+            <button class="button" @@click="cancel">Cancel</button>
+        </div>
     </div>
-</div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Christian Bedwell 2019</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 @section scripts{
     <script src="~/js/admin/products.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 }

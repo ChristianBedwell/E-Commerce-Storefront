@@ -10846,3 +10846,15 @@ color: #007bff;
 .sb-sidenav-light .sb-sidenav-footer {
 background-color: #e9ecef;
 }
+
+#editButton.btn i {
+    margin-right: 5px;
+}
+
+#deleteButton.btn i {
+    margin-right: 5px;
+}
+
+#addButton.btn i {
+    margin-right: 5px;
+}

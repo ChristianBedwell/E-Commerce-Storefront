@@ -20,9 +20,8 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Value</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th>Price</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,15 +29,23 @@
                                     <td>{{product.id}}</td>
                                     <td>{{product.name}}</td>
                                     <td>${{product.value}}</td>
-                                    <td><button type="button" class="btn btn-info" @@click="editProduct(product.id, index)">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger" @@click="deleteProduct(product.id, index)">Remove</button></td>
+                                    <td>
+                                        <button id="editButton" type="button" class="btn btn-primary" @@click="editProduct(product.id, index)">
+                                            <i class="fa fa-edit fa-fw" aria-hidden="true"></i>Edit
+                                        </button>
+                                        <button id="deleteButton" type="button" class="btn btn-danger" @@click="deleteProduct(product.id, index)">
+                                            <i class="fa fa-trash fa-fw" aria-hidden="true"></i>Remove
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" @@click="newProduct">Add New Product</button>
+            <button id="addButton" type="button" class="btn btn-success" @@click="newProduct">
+                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add New Product
+            </button>
         </div>
         <!-- else if editing, display input fields -->
         <div v-else>
@@ -99,8 +106,4 @@
 @section scripts{
     <script src="~/js/admin/products.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 }

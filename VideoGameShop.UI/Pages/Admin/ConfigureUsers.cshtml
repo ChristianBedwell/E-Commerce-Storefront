@@ -3,10 +3,17 @@
 @{
 }
 
-<div id="app" class="container">
-    <input v-model="username" />
-    <button @@click="createUser()">Create</button>
-</div>
+
+<main>
+    <div id="app" class="container-fluid">
+        <h1 class="mt-4">Configure Users</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Admin Menu > Configure Users</li>
+        </ol>
+        <input v-model="username" />
+        <button @@click="createUser()">Create</button>
+    </div>
+</main>
 
 @section scripts{
     <script src="~/js/admin/users.js"></script>

@@ -3,31 +3,140 @@
 @{
 }
 
-<div id="app">
-    <div v-if="selectedOrder == null">
-        <div class="tabs is-centered">
-            <ul>
-                <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>
-                <li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
-                <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>
+<main>
+    <div id="app" class="container-fluid">
+        <h1 class="mt-4">Orders</h1>
+        <ol class="breadcrumb mb-4">
+            <li id="breadcrumb" class="breadcrumb-item active">Store Menu > Orders > Pending</li>
+        </ol>
+        <!-- if selected order is null -->
+        <div v-if="selectedOrder == null">
+            <!-- nav bar for pending, packed, and shipped items -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item" v-bind:class="{'is-active': status === 0}">
+                    <a class="nav-link active" data-toggle="tab" href="#pending" @@click="status = 0" onclick="clickTab(0)">Pending</a>
+                </li>
+                <li class="nav-item" v-bind:class="{'is-active': status === 1}">
+                    <a class="nav-link" data-toggle="tab" href="#packed" @@click="status = 1" onclick="clickTab(1)">Packed</a>
+                </li>
+                <li class="nav-item" v-bind:class="{'is-active': status === 2}">
+                    <a class="nav-link" data-toggle="tab" href="#shipped" @@click="status = 2" onclick="clickTab(2)">Shipped</a>
+                </li>
             </ul>
+            <!-- tab content for pending, packed, and shipped items -->
+            <div class="tab-content">
+                <div id="pending" class="tab-pane fade in active">
+                    <!-- if orders length is greater than 0, display table of orders -->
+                    <div v-if="orders.length > 0">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Reference #</th>
+                                            <th>Email</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="order in orders">
+                                            <td>{{order.orderRef}}</td>
+                                            <td>{{order.email}}</td>
+                                            <td>
+                                                <button id="processButton" type="button" class="btn btn-primary" @@click="selectOrder(order.id)">
+                                                    <i class="fa fa-spinner fa-fw" aria-hidden="true"></i>Process
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="packed" class="tab-pane fade">
+                    <!-- if orders length is greater than 0, display table of orders -->
+                    <div v-if="orders.length > 0">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Reference #</th>
+                                            <th>Email</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="order in orders">
+                                            <td>{{order.orderRef}}</td>
+                                            <td>{{order.email}}</td>
+                                            <td>
+                                                <button id="shipButton" type="button" class="btn btn-primary" @@click="">
+                                                    <i class="fa fa-ship fa-fw" aria-hidden="true"></i>Ship
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="shipped" class="tab-pane fade">
+                    <!-- if orders length is greater than 0, display table of orders -->
+                    <div v-if="orders.length > 0">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Reference #</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="order in orders">
+                                            <td>{{order.orderRef}}</td>
+                                            <td>{{order.email}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div v-if="orders.length > 0">
-            <p v-for="order in orders">
-                <a @@click="selectOrder(order.id)">{{order.orderRef}} - {{order.email}}</a>
+        <!-- if selected order is not null -->
+        <div v-else>
+            <p>
+                <button @@click="exitOrder()">Exit</button>
             </p>
+            <p class="title">{{selectedOrder.orderRef}}</p>
+            <p class="subtitle">{{selectedOrder.email}}</p>
+            <button @@click="updateOrder()">Process</button>
         </div>
     </div>
-    <div v-else>
-        <p>
-            <button @@click="exitOrder()">Exit</button>
-        </p>
-        <p class="title">{{selectedOrder.orderRef}}</p>
-        <p class="subtitle">{{selectedOrder.email}}</p>
-        <button @@click="updateOrder()">Process</button>
-    </div>
-</div>
+</main>
 
 @section scripts {
     <script src="~/js/admin/orders.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+
+    <script>
+        var clickTab = function (statusNumber) {
+            var breadcrumb = document.getElementById("breadcrumb");
+
+            if (statusNumber == 0) {
+                breadcrumb.innerText = "Store Menu > Orders > Pending";
+            }
+            else if (statusNumber == 1) {
+                breadcrumb.innerText = "Store Menu > Orders > Packed";
+            }
+            else if (statusNumber == 2) {
+                breadcrumb.innerText = "Store Menu > Orders > Shipped";
+            }
+        }
+    </script>
 }

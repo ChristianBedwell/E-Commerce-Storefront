@@ -3,15 +3,61 @@
 @{
 }
 
-
 <main>
     <div id="app" class="container-fluid">
         <h1 class="mt-4">Configure Users</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Admin Menu > Configure Users</li>
         </ol>
-        <input v-model="username" />
-        <button @@click="createUser()">Create</button>
+        <!-- if not creating/editing users, display table -->
+        <div v-if="!editing">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <div>
+                            <i class="fas fa-table mr-1"></i>Users
+                        </div>
+                        <button id="addButton" type="button" class="btn btn-success" @@click="newUser">
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add New User
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- TODO -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- else if editing, display input fields -->
+        <div v-else>
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input class="input" v-model="userModel.username" />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" v-model="userModel.password" />
+                </div>
+            </div>
+            <button class="button btn-success" @@click="createUser" v-if="!userModel.id">Create User</button>
+            <button class="button btn-warning" @@click="updateUser" v-else>Update Product</button>
+            <button class="btn btn-outline-dark" @@click="cancel">Cancel</button>
+        </div>
     </div>
 </main>
 

@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Shop.Application.UsersAdmin
@@ -15,17 +18,21 @@ namespace Shop.Application.UsersAdmin
 
         public class Request
         {
-            public string UserName { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
         }
 
         public async Task<bool> Do(Request request)
         {
+            HashAlgorithm hashAlgorithm = HashAlgorithm.Create("sha256");
+
             var managerUser = new IdentityUser()
             {
-                UserName = request.UserName
+                UserName = request.Username,
+                PasswordHash = Convert.ToBase64String(hashAlgorithm.ComputeHash(Encoding.Unicode.GetBytes(request.Password)))
             };
 
-            await _userManager.CreateAsync(managerUser, "password");
+            await _userManager.CreateAsync(managerUser, request.Password);
 
             var managerClaim = new Claim("Role", "Manager");
 

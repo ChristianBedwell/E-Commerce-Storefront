@@ -33,7 +33,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Order Reference #</th>
+                                            <th>Order Reference Number</th>
                                             <th>Email</th>
                                             <th>Actions</th>
                                         </tr>
@@ -62,7 +62,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Order Reference #</th>
+                                            <th>Order Reference Number</th>
                                             <th>Email</th>
                                             <th>Actions</th>
                                         </tr>
@@ -91,7 +91,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Order Reference #</th>
+                                            <th>Order Reference Number</th>
                                             <th>Email</th>
                                         </tr>
                                     </thead>
@@ -110,12 +110,15 @@
         </div>
         <!-- if selected order is not null -->
         <div v-else>
-            <p>
-                <button @@click="exitOrder()">Exit</button>
-            </p>
-            <p class="title">{{selectedOrder.orderRef}}</p>
-            <p class="subtitle">{{selectedOrder.email}}</p>
-            <button @@click="updateOrder()">Process</button>
+            <dl class="dl-horizontal">
+                <dt>Order Reference Number:</dt>
+                <dd>{{selectedOrder.orderRef}}</dd>
+                <dt>Email:</dt>
+                <dd>{{selectedOrder.email}}</dd>
+            </dl>
+            <hr />
+            <button type="button" class="btn btn-outline-dark mr-1" @@click="exitOrder()">Cancel</button>
+            <button type="button" class="btn btn-primary" @@click="updateOrder()">Process</button>
         </div>
     </div>
 </main>

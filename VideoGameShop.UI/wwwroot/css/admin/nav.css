@@ -10847,22 +10847,6 @@ color: #007bff;
 background-color: #e9ecef;
 }
 
-#editButton.btn i {
-    margin-right: 5px;
-}
-
-#deleteButton.btn i {
-    margin-right: 5px;
-}
-
-#addButton.btn i {
-    margin-right: 5px;
-}
-
-#processButton.btn i {
-    margin-right: 5px;
-}
-
-#shipButton.btn i {
+#iconButton.btn i {
     margin-right: 5px;
 }

@@ -17,7 +17,7 @@
                         <div>
                             <i class="fas fa-table mr-1"></i>Users
                         </div>
-                        <button id="addButton" type="button" class="btn btn-success" @@click="newUser">
+                        <button id="iconButton" type="button" class="btn btn-success" @@click="newUser">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add New User
                         </button>
                     </div>
@@ -42,26 +42,31 @@
         </div>
         <!-- else if editing, display input fields -->
         <div v-else>
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control">
-                    <input class="input" v-model="userModel.username" />
-                </div>
+            <!-- form input for product name, description, and value -->
+            <div class="form-group">
+                <label for="username"><b>Username</b></label>
+                <input type="text" class="form-control" id="username" v-model="userModel.username">
             </div>
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                    <input class="input" v-model="userModel.password" />
-                </div>
+            <div class="form-group">
+                <label for="password"><b>Password</b></label>
+                <input type="password" class="form-control" id="password" v-model="userModel.password">
             </div>
-            <button class="button btn-success" @@click="createUser" v-if="!userModel.id">Create User</button>
-            <button class="button btn-warning" @@click="updateUser" v-else>Update Product</button>
-            <button class="btn btn-outline-dark" @@click="cancel">Cancel</button>
+            <!-- buttons for confirmation and cancellation -->
+            <button id="iconButton" class="btn btn-outline-dark mr-1" @@click="cancel">
+                <i class="fa fa-times-circle fa-fw" aria-hidden="true"></i>Cancel
+            </button>
+            <button id="iconButton" class="btn btn-success" @@click="createUser" v-if="!userModel.id">
+                <i class="fa fa-check fa-fw" aria-hidden="true"></i>Create User
+            </button>
+            <button id="iconButton" class="btn btn-warning" @@click="updateUser" v-else>
+                <i class="fa fa-check fa-fw" aria-hidden="true"></i>Update Product
+            </button>
         </div>
     </div>
 </main>
 
 @section scripts{
     <script src="~/js/admin/users.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 }
 

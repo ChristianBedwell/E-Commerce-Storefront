@@ -15,15 +15,42 @@
         this.getUsers();
     },
     methods: {
-        // get an existing user by id
+        // TODO: get an existing user by id
         getUser(id) {
-            // TODO
+            this.loading = true;
+            axios.get('/users/' + id)
+                .then(res => {
+                    console.log(res);
+                    var user = res.data;
+                    this.userModel = {
+                        id: user.id,
+                        username: user.username,
+                        password: user.password
+                    };
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                });
         },
-        // get all existing users
+        // TODO: get all existing users
         getUsers() {
-            // TODO
+            this.loading = true;
+            axios.get('/users')
+                .then(res => {
+                    console.log(res);
+                    this.users = res.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                });
         },
-        // create a new user
+        // TODO: create a new user
         createUser() {
             this.loading = true;
             axios.post('/users', { username: this.userModel.username, password: this.userModel.password })
@@ -38,8 +65,21 @@
                 this.editing = false;
             });
         },
+        // TODO: update an existing user
         updateUser() {
-            // TODO
+            this.loading = true;
+            axios.put('/users', this.userModel)
+                .then(res => {
+                    console.log(res.data);
+                    this.users.splice(this.objectIndex, 1, res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+                .then(() => {
+                    this.loading = false;
+                    this.editing = false;
+                });
         },
         // edits user at index
         editUser() {

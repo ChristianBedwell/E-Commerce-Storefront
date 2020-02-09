@@ -27,13 +27,27 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- TODO -->
+                                <!-- loop through users and display id, username, and password for each -->
+                                <tr v-for="user in users">
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.username}}</td>
+                                    <td>{{user.password}}</td>
+                                    <td>
+                                        <button id="iconButton" type="button" class="btn btn-primary" @@click="">
+                                            <i class="fa fa-edit fa-fw" aria-hidden="true"></i>Edit
+                                        </button>
+                                        <button id="iconButton" type="button" class="btn btn-danger" @@click="">
+                                            <i class="fa fa-trash fa-fw" aria-hidden="true"></i>Remove
+                                        </button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

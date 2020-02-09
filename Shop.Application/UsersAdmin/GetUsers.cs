@@ -19,14 +19,15 @@ namespace Shop.Application.UsersAdmin
             .Include(x => x.UserName)
             .Select(x => new Response
             {
-                Username = x.UserName
+                Username = x.UserName,
+                PasswordHash = x.PasswordHash
             })
             .ToList();
 
         public class Response
         {
             public string Username { get; set; }
-            
+            public string PasswordHash { get; set; }
         }
     }
 }

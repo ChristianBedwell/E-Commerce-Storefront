@@ -15,7 +15,7 @@ namespace VideoGameShop.UI.Controllers
         {
             _createUser = createUser;
         }
-        
+
         public async Task<IActionResult> CreateUser([FromBody] CreateUser.Request request)
         {
             await _createUser.Do(request);

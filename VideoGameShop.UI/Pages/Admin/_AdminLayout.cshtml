@@ -52,15 +52,15 @@
                             @if ((await authService.AuthorizeAsync(User, "Manager")).Succeeded)
                             {
                                 <div class="sb-sidenav-menu-heading">Store Menu</div>
-                                <a class="nav-link" href="/Admin/Index">
+                                <a class="nav-link" asp-page="/Admin/Index">
                                     <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                                     Products
                                 </a>
-                                <a class="nav-link" href="/Admin/OrdersManagement">
+                                <a class="nav-link" asp-page="/Admin/OrdersManagement">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Orders
                                 </a>
-                                <a class="nav-link" href="/Admin/Stock">
+                                <a class="nav-link" asp-page="/Admin/Stock">
                                     <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                     Stock
                                 </a>
@@ -68,12 +68,12 @@
                             @if ((await authService.AuthorizeAsync(User, "Admin")).Succeeded)
                             {
                                 <div class="sb-sidenav-menu-heading">Admin Menu</div>
-                                <a class="nav-link" href="/Admin/ConfigureUsers">
+                                <a class="nav-link" asp-page="/Admin/ConfigureUsers">
                                     <div class="sb-nav-link-icon"><i class="fa fa-users"></i></div>
                                     Configure Users
                                 </a>
                             }
-                            <a class="nav-link" href="/Index">
+                            <a class="nav-link" asp-page="/Index">
                                 <div class="sb-nav-link-icon"><i class="fa fa-arrow-left"></i></div>
                                 Back to Main
                             </a>

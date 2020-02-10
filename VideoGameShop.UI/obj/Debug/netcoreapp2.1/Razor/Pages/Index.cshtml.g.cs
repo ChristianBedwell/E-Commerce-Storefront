@@ -72,12 +72,12 @@ using Microsoft.AspNetCore.Authorization;
             WriteLiteral("                <div class=\"column is-one-third-desktop is-4-tablet is-6-mobile\">\r\n                    ");
             EndContext();
             BeginContext(323, 2108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5450071607b44c768f5d9ea43b989022", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0fde643a771b41078df92e43461e1fd6", async() => {
                 BeginContext(388, 205, true);
                 WriteLiteral("\r\n                        <div class=\"card large\">\r\n                            <div class=\"card-image\">\r\n                                <figure class=\"image is-3x4\">\r\n                                    ");
                 EndContext();
                 BeginContext(593, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8a8b1d19cd5a4383a091c0f3e9a6a003", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "60f2ee586b4b48cd8aa258ec837b0e72", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

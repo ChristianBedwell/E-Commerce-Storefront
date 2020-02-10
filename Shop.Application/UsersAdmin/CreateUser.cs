@@ -10,6 +10,7 @@ namespace Shop.Application.UsersAdmin
     public class CreateUser
     {
         private UserManager<IdentityUser> _userManager;
+        private Claim userClaim;
 
         public CreateUser(UserManager<IdentityUser> userManager)
         {
@@ -20,23 +21,33 @@ namespace Shop.Application.UsersAdmin
         {
             public string Username { get; set; }
             public string Password { get; set; }
+            public string Role { get; set; }
         }
 
         public async Task<bool> Do(Request request)
         {
             HashAlgorithm hashAlgorithm = HashAlgorithm.Create("sha256");
 
-            var managerUser = new IdentityUser()
+            var newUser = new IdentityUser()
             {
                 UserName = request.Username,
                 PasswordHash = Convert.ToBase64String(hashAlgorithm.ComputeHash(Encoding.Unicode.GetBytes(request.Password)))
             };
 
-            await _userManager.CreateAsync(managerUser, request.Password);
+            await _userManager.CreateAsync(newUser, request.Password);
 
-            var managerClaim = new Claim("Role", "Manager");
-
-            await _userManager.AddClaimAsync(managerUser, managerClaim);
+            // if new user has admin access rights, assign admin claim
+            if (request.Role.Equals("Admin"))
+            {
+                userClaim = new Claim("Role", "Admin");
+            }
+            // else if new user has manager access rights, assign manager claim
+            else if (request.Role.Equals("Manager"))
+            {
+                userClaim = new Claim("Role", "Manager");
+            }            
+            // apply claim to user
+            await _userManager.AddClaimAsync(newUser, userClaim);
 
             return true;
         }

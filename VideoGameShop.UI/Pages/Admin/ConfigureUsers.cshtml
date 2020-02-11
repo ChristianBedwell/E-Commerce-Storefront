@@ -35,14 +35,14 @@
                             </thead>
                             <!-- table body -->
                             <tbody>
-                                <tr v-for="user in users">
+                                <tr v-for="(user, index) in users">
                                     <td>{{user.username}}</td>
                                     <td>{{user.passwordHash}}</td>
                                     <td>
-                                        <button id="iconButton" type="button" class="btn btn-primary" @@click="">
+                                        <button id="iconButton" type="button" class="btn btn-primary" @@click="editUser(user.id, index)">
                                             <i class="fa fa-edit fa-fw" aria-hidden="true"></i>Edit
                                         </button>
-                                        <button id="iconButton" type="button" class="btn btn-danger" @@click="">
+                                        <button id="iconButton" type="button" class="btn btn-danger" @@click="deleteUser(user.id, index)">
                                             <i class="fa fa-trash fa-fw" aria-hidden="true"></i>Remove
                                         </button>
                                     </td>
@@ -75,8 +75,11 @@
             <button id="iconButton" class="btn btn-outline-dark mr-1" @@click="cancel">
                 <i class="fa fa-times-circle fa-fw" aria-hidden="true"></i>Cancel
             </button>
-            <button id="iconButton" class="btn btn-success" @@click="createUser">
+            <button id="iconButton" class="btn btn-success" @@click="createUser" v-if="!userModel.id">
                 <i class="fa fa-check fa-fw" aria-hidden="true"></i>Create User
+            </button>
+            <button id="iconButton" type="button" class="btn btn-warning" @@click="updateUser" v-else>
+                <i class="fa fa-check fa-fw" aria-hidden="true"></i>Update Product
             </button>
         </div>
     </div>

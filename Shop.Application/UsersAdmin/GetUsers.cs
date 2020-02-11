@@ -6,6 +6,7 @@ namespace Shop.Application.UsersAdmin
 {
     public class Response
     {
+        public string Id { get; set; }
         public string Username { get; set; }
         public string PasswordHash { get; set; }
     }
@@ -22,6 +23,7 @@ namespace Shop.Application.UsersAdmin
         public IEnumerable<Response> Do() =>
             _context.Users.ToList().Select(x => new Response
             {
+                Id = x.Id,
                 Username = x.UserName,
                 PasswordHash = x.PasswordHash,
             });

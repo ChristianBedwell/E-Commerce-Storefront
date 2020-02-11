@@ -30,6 +30,7 @@ namespace Shop.Application.ProductsAdmin
                 Value = product.Value
             };       
         }
+
         public class Request
         {
             public int Id { get; set; }

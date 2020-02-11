@@ -102,6 +102,9 @@
         newProduct() {
             this.editing = true;
             this.productModel.id = 0;
+            this.productModel.name = "Product Name";
+            this.productModel.description = "Product Description";
+            this.productModel.value = 1.99;
         },
         cancel() {
             this.editing = false;

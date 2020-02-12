@@ -7,8 +7,7 @@
         userModel: {
             id: 0,
             username: "",
-            password: "",
-            role: ""
+            password: ""
         },
         users: []
     },
@@ -42,8 +41,7 @@
                     this.userModel = {
                         id: user.id,
                         username: user.username,
-                        password: user.password,
-                        role: user.role
+                        password: user.password
                     };
                 })
                 .catch(err => {
@@ -109,7 +107,6 @@
             this.userModel.id = 0;
             this.userModel.username = "";
             this.userModel.password = "";
-            this.userModel.role = "";
         },
         cancel() {
             this.editing = false;

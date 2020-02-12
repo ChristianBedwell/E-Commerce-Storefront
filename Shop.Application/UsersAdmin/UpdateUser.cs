@@ -12,12 +12,13 @@ namespace Shop.Application.UsersAdmin
     public class UpdateUser
     {
         private UserManager<IdentityUser> _userManager;
-        private Claim newClaim;
         private ApplicationDbContext _context;
+        private Claim newClaim;
 
-        public UpdateUser(ApplicationDbContext context)
+        public UpdateUser(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task<Response> Do(Request request)

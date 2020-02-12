@@ -9,15 +9,10 @@ namespace Shop.Application.UsersAdmin
         private UserManager<IdentityUser> _userManager;
         private ApplicationDbContext _context;
 
-        public GetUser(ApplicationDbContext context)
+        public GetUser(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
-        }
-
-        // TODO: iterate through user claims and retrieve first claim
-        public void getUserRole()
-        {
-
+            _userManager = userManager;
         }
 
         public UserViewModel Do(string id) =>
@@ -34,7 +29,6 @@ namespace Shop.Application.UsersAdmin
             public string Id { get; set; }
             public string Username { get; set; }
             public string Password { get; set; }
-            public string Role { get; set; }
         }
     }
 }

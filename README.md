@@ -1,5 +1,5 @@
 # Video-Game-Storefront
-A video game storefront built with .NET Core and Razor Pages.
+An e-commerce application, written in ASP.NET Core, which allows an admin user to manage dashboard items such as products, customer orders, and stock. Admin users may also create additional dashboard users and grant role-based access rights. Customer users may browse, order, and apply a payment method to products that are in stock.   
 
 ## Technologies Used
 * **Axios.js** - JavaScript framework which handles HTTP network requests

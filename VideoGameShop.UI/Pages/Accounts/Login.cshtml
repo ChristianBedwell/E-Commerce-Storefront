@@ -1,47 +1,70 @@
 ﻿@page
 @model VideoGameShop.UI.Pages.Accounts.LoginModel
 @{
+    Layout = null;
 }
 
-<section class="hero is-fullheight">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                    <form method="post" class="box">
-                        <h3 class="title has-text-black has-text-centered">Login</h3>
-                        <hr>
-                        <div class="field">
-                            <label for="" class="label">Username</label>
-                            <div class="control has-icons-left">
-                                <input asp-for="Input.Username" type="text" placeholder="Enter username" class="input" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
-                            </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - VideoGameShop.UI</title>
+
+        <environment include="Development">
+            <link href="~/lib/bulma-0.8.0/css/bulma.css" rel="stylesheet" />
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+            <link rel="stylesheet" href="~/css/site.css" />
+            <link href="~/css/cards.css" rel="stylesheet" />
+        </environment>
+        <environment include="Production">
+            <link href="~/lib/bulma-0.8.0/css/bulma.min.css" rel="stylesheet" />
+            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+            <link href="~/css/cards.css" rel="stylesheet" />
+        </environment>
+    </head>
+    <body class="loginBody">
+        <section class="hero is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                            <form method="post" class="box">
+                                <h3 class="title has-text-black has-text-centered">Login</h3>
+                                <hr>
+                                <div class="field">
+                                    <label for="" class="label">Username</label>
+                                    <div class="control has-icons-left">
+                                        <input asp-for="Input.Username" type="text" placeholder="Enter username" class="input" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="fa fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="" class="label">Password</label>
+                                    <div class="control has-icons-left">
+                                        <input asp-for="Input.Password" type="password" placeholder="Enter password" class="input" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="fa fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field" style="text-align:center">
+                                    <button class="button is-success is-fullwidth" id="button-login" value="Sign In">
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="field">
-                            <label for="" class="label">Password</label>
-                            <div class="control has-icons-left">
-                                <input asp-for="Input.Password" type="password" placeholder="Enter password" class="input" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field" style="text-align:center">
-                            <button class="button is-success is-fullwidth" id="button-login" value="Sign In">
-                                Login
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+        <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+    </body>
+</html>
 
-@section scripts {
-    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
-}
+
 

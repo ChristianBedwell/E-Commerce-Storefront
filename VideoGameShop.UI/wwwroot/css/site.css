@@ -47,6 +47,16 @@ body {
     animation: gradientBG 15s ease infinite;
 }
 
+.loginBody {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Exo", sans-serif;
+    color: #fff;
+    background-image: url('../images/wallpaper.jpg');
+    background-size: cover;
+}
+
 @keyframes gradientBG {
     0% {
         background-position: 0% 50%;
